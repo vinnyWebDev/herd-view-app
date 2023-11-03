@@ -4,6 +4,13 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+//fbconfig contains the settings unique to this app which firebase will use
+import fbconfig from './fbconfig';
+
+//in order to connect with firebase and use its services, firebase must be initalised in our app
+import { initializeApp } from "firebase/app"
+const app = initializeApp(fbconfig)
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
