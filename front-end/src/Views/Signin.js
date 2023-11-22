@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
 //use navigate is sued tor edirect our users
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 //firebase functions
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth"
 
@@ -36,7 +36,10 @@ const Signin = () => {
             <form action="">
                 <input onChange={(e) => { setEmail(e.target.value) }} type="email" placeholder='Email'></input>
                 <input onChange={(e) => { setPassword(e.target.value) }} type="password" placeholder='Password'></input>
-                <button onClick={(e) => { handleSignin(e) }}>Sign Up</button>
+                <button onClick={(e) => { handleSignin(e) }}>Sign In</button>
+                <Link to="/signup">Register</Link>
+                <Link to="/resetpassword">Frogot Password</Link>
+
             </form>
         </div>
     )

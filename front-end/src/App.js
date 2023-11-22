@@ -2,6 +2,8 @@ import './App.css';
 import Home from './Views/Home';
 import Signin from './Views/Signin';
 import Signup from './Views/Signup';
+import Test from './Views/Test';
+import Navigation from './Components/Navigation';
 import { AuthContext } from './Context/AuthContext';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { Protected } from './Context/Protected';
@@ -25,13 +27,20 @@ function App() {
   {
     path: "resetpassword",
     element: <ResetPassword></ResetPassword>
+  },
+  {
+    path: "test",
+    element: <Protected><Test></Test></Protected>
   }])
 
   return (
     <div>
       {/*Tells the app that the const router declared above defines our routes */}
       <AuthContext>
-        <RouterProvider router={router}></RouterProvider>
+        <Navigation></Navigation>
+        <div className='container'>
+          <RouterProvider router={router}></RouterProvider>
+        </div>
       </AuthContext>
     </div>
   );

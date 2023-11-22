@@ -6,7 +6,7 @@ const ResetPassword = () => {
     const [email, setEmail] = useState("");
     const auth = getAuth()
 
-
+    //calls passwors reset function from firebase which sends an email to the given address
     const handleSubmit = (e) => {
         e.preventDefault()
         console.log(email)
