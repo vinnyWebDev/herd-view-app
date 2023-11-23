@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
-//use navigate is sued tor edirect our users
+import axios from "axios";
+//use navigate is sued to redirect our users
 import { useNavigate, Link } from 'react-router-dom'
 //firebase functions
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth"
@@ -22,6 +23,20 @@ const Signup = () => {
             .then((user) => {
                 //success
                 console.log(user);
+
+                //this creates a user in the back end.
+                //can we set it up so herd is related with this user
+                async function handleSubmit() {
+                    console.log(email)
+                    let response = await axios.post("http://localhost:3000/users",
+                        { email: email },
+                        { headers: { Accept: "application/json" } })
+                    let data = response.data;
+                    console.log(response.data)
+
+
+                }
+                handleSubmit();
                 navigate("/signin");
 
             })
@@ -29,6 +44,8 @@ const Signup = () => {
                 //error
                 console.log(error)
             })
+
+
 
     }
 

@@ -9,6 +9,7 @@ class CreateCows < ActiveRecord::Migration[7.0]
       t.integer :aggression
       t.integer :fertility
       t.integer :calving
+      t.integer :calfquality
       t.integer :milk
       t.references :user, null: false, foreign_key: true
 

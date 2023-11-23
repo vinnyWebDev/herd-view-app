@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_11_22_183103) do
+ActiveRecord::Schema[7.0].define(version: 2023_11_23_141212) do
   create_table "cows", force: :cascade do |t|
     t.integer "tag"
     t.date "dob"
@@ -20,6 +20,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_22_183103) do
     t.integer "aggression"
     t.integer "fertility"
     t.integer "calving"
+    t.integer "calfquality"
     t.integer "milk"
     t.integer "user_id", null: false
     t.datetime "created_at", null: false

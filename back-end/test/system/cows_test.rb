@@ -16,6 +16,7 @@ class CowsTest < ApplicationSystemTestCase
 
     fill_in "Aggression", with: @cow.aggression
     fill_in "Breed", with: @cow.breed
+    fill_in "Calfquality", with: @cow.calfquality
     fill_in "Calving", with: @cow.calving
     fill_in "Dam", with: @cow.dam
     fill_in "Dob", with: @cow.dob
@@ -36,6 +37,7 @@ class CowsTest < ApplicationSystemTestCase
 
     fill_in "Aggression", with: @cow.aggression
     fill_in "Breed", with: @cow.breed
+    fill_in "Calfquality", with: @cow.calfquality
     fill_in "Calving", with: @cow.calving
     fill_in "Dam", with: @cow.dam
     fill_in "Dob", with: @cow.dob

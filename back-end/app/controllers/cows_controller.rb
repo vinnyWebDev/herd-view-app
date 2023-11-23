@@ -67,6 +67,6 @@ class CowsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def cow_params
-      params.require(:cow).permit(:tag, :dob, :dam, :breed, :docility, :aggression, :fertility, :calving, :milk, :user_id)
+      params.require(:cow).permit(:tag, :dob, :dam, :breed, :docility, :aggression, :fertility, :calving, :calfquality, :milk, :user_id)
     end
 end

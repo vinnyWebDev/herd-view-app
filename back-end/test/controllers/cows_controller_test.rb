@@ -17,7 +17,7 @@ class CowsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create cow" do
     assert_difference("Cow.count") do
-      post cows_url, params: { cow: { aggression: @cow.aggression, breed: @cow.breed, calving: @cow.calving, dam: @cow.dam, dob: @cow.dob, docility: @cow.docility, fertility: @cow.fertility, milk: @cow.milk, tag: @cow.tag, user_id: @cow.user_id } }
+      post cows_url, params: { cow: { aggression: @cow.aggression, breed: @cow.breed, calfquality: @cow.calfquality, calving: @cow.calving, dam: @cow.dam, dob: @cow.dob, docility: @cow.docility, fertility: @cow.fertility, milk: @cow.milk, tag: @cow.tag, user_id: @cow.user_id } }
     end
 
     assert_redirected_to cow_url(Cow.last)
@@ -34,7 +34,7 @@ class CowsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update cow" do
-    patch cow_url(@cow), params: { cow: { aggression: @cow.aggression, breed: @cow.breed, calving: @cow.calving, dam: @cow.dam, dob: @cow.dob, docility: @cow.docility, fertility: @cow.fertility, milk: @cow.milk, tag: @cow.tag, user_id: @cow.user_id } }
+    patch cow_url(@cow), params: { cow: { aggression: @cow.aggression, breed: @cow.breed, calfquality: @cow.calfquality, calving: @cow.calving, dam: @cow.dam, dob: @cow.dob, docility: @cow.docility, fertility: @cow.fertility, milk: @cow.milk, tag: @cow.tag, user_id: @cow.user_id } }
     assert_redirected_to cow_url(@cow)
   end
 
