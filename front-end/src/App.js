@@ -2,12 +2,12 @@ import './App.css';
 import Home from './Views/Home';
 import Signin from './Views/Signin';
 import Signup from './Views/Signup';
-import Test from './Views/Test';
 import Navigation from './Components/Navigation';
 import { AuthContext } from './Context/AuthContext';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { Protected } from './Context/Protected';
 import ResetPassword from './Views/ResetPassword';
+import ViewHerd from './Views/ViewHerd';
 
 function App() {
 
@@ -29,9 +29,10 @@ function App() {
     element: <ResetPassword></ResetPassword>
   },
   {
-    path: "test",
-    element: <Protected><Test></Test></Protected>
-  }])
+    path: "viewherd",
+    element: <Protected><ViewHerd></ViewHerd></Protected>
+  }
+  ])
 
   return (
     <div>
