@@ -34,7 +34,8 @@ const CowTable = (props) => {
                         <th>Calving</th>
                         <th>Calf Quality</th>
                         <th>Milk</th>
-                        <th>Delete</th>
+                        <th></th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -55,6 +56,7 @@ const CowTable = (props) => {
                                         <td>{item.tag}</td>
                                         <td>{item.calfquality}</td>
                                         <td>{item.milk}</td>
+                                        <td><Button>View</Button></td>
                                         {/*Passes item Id to a function which removes it from DB */}
                                         <td><DeleteItem id={item.id}></DeleteItem></td>
                                     </tr>
