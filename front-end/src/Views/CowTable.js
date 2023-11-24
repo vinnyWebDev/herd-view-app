@@ -3,12 +3,14 @@ import Table from 'react-bootstrap/Table';
 
 const CowTable = (props) => {
 
-    //we're passing the array of cows in. Can we map it?
+    //we're passing the array of cows in.
     const data = props.data;
-    console.log(data)
+    //pass in id and only render items which match it?
+    const id = props.userId;
 
     return (
         <div>
+            <h2>{props.userId}</h2>
             <Table striped bordered hover>
                 <thead>
                     <tr>
@@ -27,23 +29,25 @@ const CowTable = (props) => {
                 <tbody>
                     {
                         //map through data here, outputting to table 
+                        //id we take in must be made dynamic
                         data.map((item) => {
-                            return (
-                                <tr>
-                                    <td>{item.tag}</td>
-                                    <td>{item.dob}</td>
-                                    <td>{item.dam}</td>
-                                    <td>{item.breed}</td>
-                                    <td>{item.docility}</td>
-                                    <td>{item.aggression}</td>
-                                    <td>{item.fertility}</td>
-                                    <td>{item.tag}</td>
-                                    <td>{item.calfquality}</td>
-                                    <td>{item.milk}</td>
-                                </tr>
-                            )
+                            if (item.user_id == id) {
+                                return (
+                                    <tr>
+                                        <td>{item.tag}</td>
+                                        <td>{item.dob}</td>
+                                        <td>{item.dam}</td>
+                                        <td>{item.breed}</td>
+                                        <td>{item.docility}</td>
+                                        <td>{item.aggression}</td>
+                                        <td>{item.fertility}</td>
+                                        <td>{item.tag}</td>
+                                        <td>{item.calfquality}</td>
+                                        <td>{item.milk}</td>
+                                    </tr>
+                                )
+                            }
                         })
-
                     }
                 </tbody>
             </Table>

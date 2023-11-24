@@ -12,7 +12,9 @@ const ViewHerd = () => {
 
 
     const [email, setEmail] = useState("")
-    const [id, setId] = useState(0)
+    // const [id, setId] = useState(0)
+
+    //this value must be gottten and made dyanmic so as we only display relevant animals
 
     const auth = getAuth();
     onAuthStateChanged(auth, (user) => {
@@ -66,7 +68,17 @@ const ViewHerd = () => {
 
             <h1>Herd</h1>
             {/*Create a table component, import it here */}
-            <CowTable data={cows}></CowTable>
+            {/*The old way won't work because Cow is it's own whole model which isn't nested
+            YOu will have to base the mapping off of id*/}
+            {
+                users.map((item) => {
+                    if (item.email === email) {
+                        return (
+                            <CowTable userId={item.id} data={cows}></CowTable>
+                        )
+                    }
+                })
+            }
 
         </div>
     )
