@@ -71,21 +71,22 @@ const ViewHerd = () => {
                 users.map((item) => {
                     if (item.email === email) {
                         return (
-                            <CowTable userId={item.id} data={cows}></CowTable>
-                        )
-                    }
-                })
-            }
-            {
-                users.map((item) => {
-                    if (item.email === email) {
-                        return (
                             <NewEntry userId={item.id}></NewEntry>
                         )
                     }
 
                 })
             }
+            {
+                users.map((item) => {
+                    if (item.email === email) {
+                        return (
+                            <CowTable userId={item.id} data={cows}></CowTable>
+                        )
+                    }
+                })
+            }
+
         </div>
     )
 }
