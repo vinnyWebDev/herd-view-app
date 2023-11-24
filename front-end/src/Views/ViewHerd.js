@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react';
 import axios from "axios";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import CowTable from './CowTable';
+import NewEntry from './NewEntry';
+import { Button } from 'react-bootstrap';
 
 /*
 The purpose of this page is to view the user's herd data. 
@@ -10,11 +12,12 @@ This will also link to components which enable crud functionality for each entry
 
 const ViewHerd = () => {
 
-
+    const [isToggled, setIsToggled] = useState(false)
     const [email, setEmail] = useState("")
-    // const [id, setId] = useState(0)
-
-    //this value must be gottten and made dyanmic so as we only display relevant animals
+    //Fetch user data from rails back end
+    const [users, setUsers] = useState([]);
+    //Fetch cow data from back end
+    const [cows, setCows] = useState([]);
 
     const auth = getAuth();
     onAuthStateChanged(auth, (user) => {
@@ -30,9 +33,6 @@ const ViewHerd = () => {
         }
     });
 
-    //Fetch user data from rails back end
-    const [users, setUsers] = useState([]);
-
     useEffect(() => {
         async function fetchData() {
             // You can await here
@@ -46,9 +46,6 @@ const ViewHerd = () => {
         fetchData();
 
     }, []); // Or [] if effect doesn't need props or state
-
-    //Fetch cow data from back end
-    const [cows, setCows] = useState([]);
 
     useEffect(() => {
         async function fetchData() {
@@ -79,7 +76,16 @@ const ViewHerd = () => {
                     }
                 })
             }
+            {
+                users.map((item) => {
+                    if (item.email === email) {
+                        return (
+                            <NewEntry userId={item.id}></NewEntry>
+                        )
+                    }
 
+                })
+            }
         </div>
     )
 }

@@ -1,5 +1,8 @@
 import React from 'react'
 import Table from 'react-bootstrap/Table';
+import axios from 'axios';
+import { Button } from 'react-bootstrap';
+import DeleteItem from '../Components/DeleteItem';
 
 const CowTable = (props) => {
 
@@ -8,9 +11,16 @@ const CowTable = (props) => {
     //pass in id and only render items which match it?
     const id = props.userId;
 
+    //handle item deletion based on unique ID
+    async function deleteItem(e, id) {
+        e.preventDefault();
+        let response = await axios.delete(`http://localhost:3000/cows/${id}`, { headers: { Accept: "application/json" } })
+        window.location.reload();
+
+    }
+
     return (
         <div>
-            <h2>{props.userId}</h2>
             <Table striped bordered hover>
                 <thead>
                     <tr>
@@ -24,6 +34,7 @@ const CowTable = (props) => {
                         <th>Calving</th>
                         <th>Calf Quality</th>
                         <th>Milk</th>
+                        <th>Delete</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -44,6 +55,8 @@ const CowTable = (props) => {
                                         <td>{item.tag}</td>
                                         <td>{item.calfquality}</td>
                                         <td>{item.milk}</td>
+                                        {/*Passes item Id to a function which removes it from DB */}
+                                        <td><DeleteItem id={item.id}></DeleteItem></td>
                                     </tr>
                                 )
                             }
