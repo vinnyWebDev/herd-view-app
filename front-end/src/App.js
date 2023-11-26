@@ -8,6 +8,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { Protected } from './Context/Protected';
 import ResetPassword from './Views/ResetPassword';
 import ViewHerd from './Views/ViewHerd';
+import CowPage from './Views/CowPage';
 
 function App() {
 
@@ -31,6 +32,11 @@ function App() {
   {
     path: "viewherd",
     element: <Protected><ViewHerd></ViewHerd></Protected>
+  },
+  //dynamic routing implemented here as we will be dealing with many unique cow entries
+  {
+    path: "cowpage/:cowid",
+    element: <Protected><CowPage></CowPage></Protected>
   }
   ])
 

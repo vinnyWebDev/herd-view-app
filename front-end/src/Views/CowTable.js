@@ -3,6 +3,7 @@ import Table from 'react-bootstrap/Table';
 import axios from 'axios';
 import { Button } from 'react-bootstrap';
 import DeleteItem from '../Components/DeleteItem';
+import { Link } from 'react-router-dom';
 
 const CowTable = (props) => {
 
@@ -53,10 +54,11 @@ const CowTable = (props) => {
                                         <td>{item.docility}</td>
                                         <td>{item.aggression}</td>
                                         <td>{item.fertility}</td>
-                                        <td>{item.tag}</td>
+                                        <td>{item.calving}</td>
                                         <td>{item.calfquality}</td>
                                         <td>{item.milk}</td>
-                                        <td><Button>View</Button></td>
+                                        {/*Dynamically to a page diaplying unique cow's data*/}
+                                        <td><Link to={`/cowpage/${item.id}`}><Button>View</Button></Link></td>
                                         {/*Passes item Id to a function which removes it from DB */}
                                         <td><DeleteItem id={item.id}></DeleteItem></td>
                                     </tr>
