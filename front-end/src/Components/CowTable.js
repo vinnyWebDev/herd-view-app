@@ -3,7 +3,7 @@ import Table from 'react-bootstrap/Table';
 import Form from "react-bootstrap/Form"
 import axios from 'axios';
 import { Button, InputGroup } from 'react-bootstrap';
-import DeleteItem from '../Components/DeleteItem';
+import DeleteItem from './DeleteItem';
 import { Link } from 'react-router-dom';
 
 const CowTable = (props) => {

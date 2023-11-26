@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import axios from "axios";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
-import CowTable from './CowTable';
+import CowTable from '../Components/CowTable';
 import NewEntry from '../Components/NewEntry';
 import { Button } from 'react-bootstrap';
 

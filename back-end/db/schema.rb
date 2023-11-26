@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_11_23_141212) do
+ActiveRecord::Schema[7.0].define(version: 2023_11_26_144734) do
   create_table "cows", force: :cascade do |t|
     t.integer "tag"
     t.date "dob"
@@ -28,6 +28,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_23_141212) do
     t.index ["user_id"], name: "index_cows_on_user_id"
   end
 
+  create_table "notes", force: :cascade do |t|
+    t.string "title"
+    t.text "body"
+    t.integer "cow_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["cow_id"], name: "index_notes_on_cow_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email"
     t.datetime "created_at", null: false
@@ -35,4 +44,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_23_141212) do
   end
 
   add_foreign_key "cows", "users"
+  add_foreign_key "notes", "cows"
 end
