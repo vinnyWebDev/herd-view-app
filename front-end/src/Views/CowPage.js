@@ -2,6 +2,7 @@ import React from 'react'
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom'
 import axios from "axios";
+import UpdateEntry from '../Components/UpdateEntry.js';
 
 const CowPage = () => {
 
@@ -24,9 +25,9 @@ const CowPage = () => {
     }, []); // Or [] if effect doesn't need props or state
 
     return (
-        <>
-            <div>
-                <h1>Cow: {cows.tag}</h1>
+        <div className='row bo'>
+            <div className='col'>
+                <h1 className='mt-5'>Cow: {cows.tag}</h1>
                 <p>DOB: {cows.dob}</p>
                 <p>DAM: {cows.dam}</p>
                 <p>Breed: {cows.breed}</p>
@@ -37,10 +38,10 @@ const CowPage = () => {
                 <p>Calf Quality: {cows.calfquality}</p>
                 <p>Milk Production: {cows.milk}</p>
             </div>
-            <div>
-
+            <div className='col'>
+                <UpdateEntry id={cowId}></UpdateEntry>
             </div>
-        </>
+        </div>
     )
 }
 
