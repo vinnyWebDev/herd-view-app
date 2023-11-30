@@ -31,7 +31,6 @@ const UpdateEntry = (props) => {
             { headers: { Accept: "application/json" } }
         )
         let data = response.data;
-        console.log(response.data);
         window.location.reload();
 
     }

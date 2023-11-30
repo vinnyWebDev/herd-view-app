@@ -2,8 +2,6 @@ import React, { PureComponent } from 'react';
 import { BarChart, Bar, Rectangle, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
 const CowChart = (props) => {
-    console.log("charts")
-    console.log(props.data)
     return (
         <div>
             {/* wont work unless data is wrapped in an array*/}
@@ -28,7 +26,7 @@ const CowChart = (props) => {
                 <Bar name="Fertility" dataKey="fertility" fill="#00846c" background={{ fill: '#eee' }} />
                 <Bar name="Ease Of Calving" dataKey="calving" fill="#439b4a" background={{ fill: '#eee' }} />
                 <Bar name="Calf Quality" dataKey="calfquality" fill="#9da912" background={{ fill: '#eee' }} />
-                <Bar name="Milk" dataKey="milk" fill="#ffa600" background={{ fill: '#eee' }} />
+                <Bar name="Milk Provision" dataKey="milk" fill="#ffa600" background={{ fill: '#eee' }} />
             </BarChart>
         </div>
     )

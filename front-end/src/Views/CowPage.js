@@ -5,6 +5,7 @@ import axios from "axios";
 import UpdateEntry from '../Components/UpdateEntry.js';
 import CowNotes from '../Components/CowNotes.js';
 import CowChart from '../Components/CowChart.js';
+import Algorithm from '../Components/Algorithm.js';
 
 const CowPage = () => {
 
@@ -19,8 +20,6 @@ const CowPage = () => {
             const response = await axios.get(`http://localhost:3000/cows/${cowId}`, {
                 headers: { Accept: 'application/json' }
             });
-            console.log("COWS")
-            console.log(response.data)
             setCows(response.data)
         }
         fetchData();
@@ -50,6 +49,7 @@ const CowPage = () => {
 
             {/* Put the cow notes component here. ID will be passed in as a prop */}
             <div>
+                <Algorithm data={cows}></Algorithm>
                 <CowNotes cowId={cowId}></CowNotes>
             </div>
         </div>
