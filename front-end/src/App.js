@@ -9,6 +9,7 @@ import { Protected } from './Context/Protected';
 import ResetPassword from './Views/ResetPassword';
 import ViewHerd from './Views/ViewHerd';
 import CowPage from './Views/CowPage';
+import Footer from './Components/Footer';
 
 function App() {
 
@@ -41,14 +42,13 @@ function App() {
   ])
 
   return (
-    <div>
+    <div className="App">
       {/*Tells the app that the const router declared above defines our routes */}
       <AuthContext>
         <Navigation></Navigation>
-        <div className='container'>
-          <RouterProvider router={router}></RouterProvider>
-        </div>
+        <RouterProvider router={router}></RouterProvider>
       </AuthContext>
+      <Footer className="Footer"></Footer>
     </div>
   );
 }
