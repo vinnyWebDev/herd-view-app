@@ -27,7 +27,7 @@ const Signin = () => {
             })
             .catch((error) => {
                 //error
-                console.log(error)
+                alert(error)
             })
 
     }
